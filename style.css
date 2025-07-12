@@ -213,8 +213,11 @@ font-size: 22px;  }
   background-color: #1565c0;
 }
 
-  
+    .section-unica{
+padding: 0 166px;  }
     @media (max-width: 768px) {
+          .section-unica{
+padding: 0!important;  }
 .propuesta{
   width: 90vw;
 }
@@ -233,5 +236,3 @@ font-size: 22px;  }
       }
     }
     
-  .section-unica{
-padding: 0 166px;  }
