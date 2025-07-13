@@ -24,23 +24,23 @@ document.querySelectorAll('.pricing-card').forEach(card => {
   const addons = card.querySelectorAll('.addon');
   const btnFull = card.querySelector('#btn-add');
 
-  // Mostrar precio base al inicio
+  // Inicializar precio base + addons activos por defecto
+  addons.forEach(addon => {
+    if (addon.classList.contains('active')) {
+      totalPrice += parseInt(addon.dataset.price);
+    }
+  });
+
   priceDisplay.textContent = `$${totalPrice.toLocaleString('es-AR')}`;
 
   addons.forEach(addon => {
-    if (addon.id !== 'btn-add') {
-      // Estos no tienen precio, son visuales
-      addon.dataset.price = "0";
-    }
-
     addon.addEventListener('click', () => {
       const price = parseInt(addon.dataset.price);
 
-      // Si es el botón "Elegir plan Full"
+      // Si es el boton "plan full"
       if (addon === btnFull) {
         const isActivating = !addon.classList.contains('active');
 
-        // Activar/desactivar todos los anteriores
         addons.forEach(a => {
           if (a !== btnFull) {
             a.classList.toggle('active', isActivating);
@@ -48,15 +48,28 @@ document.querySelectorAll('.pricing-card').forEach(card => {
         });
 
         addon.classList.toggle('active', isActivating);
-        totalPrice = isActivating ? basePrice + price : basePrice;
+
+        // Recalcular total
+        totalPrice = basePrice;
+        addons.forEach(a => {
+          if (a.classList.contains('active')) {
+            totalPrice += parseInt(a.dataset.price);
+          }
+        });
 
       } else {
-        // Por si hacés click en los addons individuales (aunque no afecten el precio)
+        // Toggle individual addon
         addon.classList.toggle('active');
+
+        // Sumar o restar según active/desactive
+        if (addon.classList.contains('active')) {
+          totalPrice += price;
+        } else {
+          totalPrice -= price;
+        }
       }
 
       priceDisplay.textContent = `$${totalPrice.toLocaleString('es-AR')}`;
     });
   });
 });
-
