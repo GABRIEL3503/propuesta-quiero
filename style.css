@@ -80,7 +80,7 @@
       color: #555;
     }
     .price {
-      color: #f17611;
+      color: #FD560D;
       text-align: center;
       font-size: 3rem;
       font-weight: bold;
@@ -97,7 +97,7 @@
         background-color: #bfe6ee57;
 ;}
 .propuesta h2{
-  color: #f17611; ;
+  color: #FD560D; ;
   font-size: 30px;
   text-align: center;
 }
@@ -107,7 +107,7 @@
   margin: 62px 0px 40px 0px;
   font-weight: 400;
       text-align: center;
-    color: #f17611;
+    color: #FD560D;
 }
 .contenedor-propuesta{
   display: flex;
@@ -160,7 +160,7 @@
     border-radius: 50%;
     }
     .addon.active .check {
-      background: #f17611;
+      background: #FD560D;
 ;
       border-color: #9e4b06;
     }
@@ -177,7 +177,7 @@ color: #363636;
 font-size: 22px;  }
 
     .propuesta{
-      color: #f17611;
+      color: #FD560D;
     display: flex;
     width: 48vw;
     flex-direction: column;
